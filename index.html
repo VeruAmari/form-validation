@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+  <title>Form Validation</title>
+</head>
+<body>
+  <div class="container">
+  <h1>Form Validation</h1>
+  <form class="form container" id="validation" action="#">
+    <fieldset class="e-mail container">
+      <label for="mail">E-Mail</label>
+      <input type="email" name="mail" id="mail" required>
+    </fieldset>
+    <fieldset>
+      <label for="country">Country</label>
+      <input type="text" name="country" id="country" required>
+      <label for="zipcode">Zip Code</label>
+      <input type="tel" name="zipcode" id="zipcode" required>
+    </fieldset>
+    <fieldset>
+      <label for="pass">Password</label>
+      <input type="password" name="pass" id="pass" required>
+      <label for="pass-confirm">Confirm Password</label>
+      <input type="password" name="pass-confirm" id="pass-confirm" required>
+    </fieldset>
+    <fieldset><button type="submit">Confirm</button></fieldset>
+  </form>
+</div>
+</body>
+</html>

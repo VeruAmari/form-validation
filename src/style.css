@@ -1,0 +1,59 @@
+body,
+form,
+fieldset {
+  display: grid;
+}
+
+body {
+  font: 1em sans-serif;
+  width: 200px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+input[type='email'],
+input[type='text'],
+input[type='tel'],
+input[type='password'] {
+  appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  box-sizing: border-box;
+}
+
+/* This is our style for the invalid fields */
+input:invalid {
+  border-color: #a00;
+  background-color: #fdd;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+input:valid {
+  border-color: #0a0;
+  background-color: #dfd;
+}
+
+/* This is the style of our error messages */
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #a00;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}

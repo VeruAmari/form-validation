@@ -1,8 +1,0 @@
-body,
-form,
-fieldset {
-  display: grid;
-}
-form{
-  max-width: 30rem;
-}

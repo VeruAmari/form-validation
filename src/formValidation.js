@@ -12,48 +12,52 @@ const formValidation = function formValidation() {
   // Input fields
 
   // ##########################################################//
-
-  function clearValues(...attributes) {
-    /* Takes in any number of document input elements
-    and empties their values */
-
-    [...attributes].forEach((element) => {
-      const elem = element;
-      elem.value = '';
-    });
+  /*
+  function values(...attributes) {
+    // Takes in any number of document input elements
+    and empties their values 
+    function clear() {
+      [...attributes].map((element) => {
+        const elem = element;
+        elem.value = '';
+        return elem;
+      });
+    }
+    return { clear };
   }
+*/
 
   function hasErrors() {
     return !(
-      mailValid().mail.validity.valid &&
-      countryValid().country.validity.valid &&
-      zipValid().zipCode.validity.valid &&
-      passValid().pass.validity.valid &&
-      passValid().passConfirm.validity.valid
+      mailValid().mailIsValid() &&
+      countryValid().countryIsValid() &&
+      zipValid().zipIsValid() &&
+      passValid().passIsValid() &&
+      passValid().passConfirmIsValid()
     );
   }
 
   function addListeners() {
     // Prevent submit
     form.addEventListener('submit', (event) => {
-      if (hasErrors) {
+      if (hasErrors()) {
         event.preventDefault();
-        console.log(
-          mailValid().mailError,
-          countryValid().countryError,
-          zipValid().zipError,
-          passValid().passError,
-          passValid().passConfirmError,
-        );
       } else {
-        clearValues(
-          mailValid().mail,
-          countryValid().country,
-          zipValid().zipCode,
-          passValid().pass,
-          passValid().passConfirm,
-        );
-        form.submit();
+        const body = document.querySelector('body');
+        body.textContent = '';
+        const h1 = document.createElement('h1');
+        const p = document.createElement('p');
+
+        h1.textContent = '🙌';
+        h1.setAttribute('style', 'font-size:10rem; ');
+        p.textContent = 'We did it!';
+        p.setAttribute('style', 'font-size:5rem; ');
+
+        const div = document.createElement('div');
+        div.classList.add('congratulations');
+        div.appendChild(h1);
+        div.appendChild(p);
+        body.appendChild(div);
       }
     });
 
@@ -64,10 +68,10 @@ const formValidation = function formValidation() {
 
     // Inline validations //
     // Email //
-    mailValid().mail.addEventListener('change', () => {
-      const re = /./i;
-      mailValid().mail.validity.valid = mailValid().mail.value === re;
-    });
+    mailValid().live();
+    zipValid().live();
+    countryValid().live();
+    passValid().live();
   }
   return { addListeners };
 };

@@ -1,20 +1,31 @@
 body,
 form,
-fieldset {
+fieldset,
+.congratulations {
   display: grid;
 }
-
+.congratulations {
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+.congratulations > * {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
 body {
   font: 1em sans-serif;
-  width: 200px;
+  width: 30rem;
   padding: 0;
   margin: 0 auto;
 }
 
-input[type='email'],
-input[type='text'],
-input[type='tel'],
-input[type='password'] {
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
   appearance: none;
 
   width: 100%;
@@ -28,7 +39,7 @@ input[type='password'] {
 }
 
 /* This is our style for the invalid fields */
-input:invalid {
+input.invalid {
   border-color: #a00;
   background-color: #fdd;
 }
@@ -36,7 +47,7 @@ input:invalid {
 input:focus:invalid {
   outline: none;
 }
-input:valid {
+input.valid {
   border-color: #0a0;
   background-color: #dfd;
 }
